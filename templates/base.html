@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}{% endblock %}</title>
+
+    <link href="https://fonts.googleapis.com/css?family=B612+Mono|Cabin:400,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='fonts/style.css') }} ">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/jquery-ui.css') }} ">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.min.css') }} ">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.theme.default.min.css') }} ">
+    
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/jquery.fancybox.min.css') }} ">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-datepicker.css') }} ">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='fonts/flaticon.css') }} ">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/aos.css') }} ">
+    <link href="{{ url_for('static', filename='css/jquery.mb.YTPlayer.min.css') }} " media="all" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }} ">
+
+    {% endblock %}
+</head>
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+    
+    <div class="site-wrap">
+
+        <div class="site-mobile-menu site-navbar-target">
+            <div class="site-mobile-menu-header">
+                <div class="site-mobile-menu-close mt-3">
+                    <span class="icon-close2 js-menu-toggle"></span>
+                </div>
+            </div>
+            <div class="site-mobile-menu-body"></div>
+        </div>
+
+
+
+        <div class="header-top">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-12 col-lg-6 d-flex site-logo">
+                        WhichOneBest
+            
+                        <a href="#" class="ml-auto d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black"><span
+                            class="icon-menu h3"></span>
+                        </a>
+            
+                    </div>
+                    <div class="col-12 col-lg-6 ml-auto d-flex">
+                        <div class="ml-md-auto top-social d-none d-lg-inline-block">
+                            <a href="{{ params['fb_url'] }}" target="_blank" class="d-inline-block p-3"><span class="icon-facebook"></span></a>
+                            <a href="{{ params['tw_url'] }}" target="_blank" class="d-inline-block p-3"><span class="icon-twitter"></span></a>
+                            <a href="{{ params['insta_url'] }}" target="_blank" class="d-inline-block p-3"><span class="icon-instagram"></span></a>
+                            <a href="/login" class="d-inline-block p-3" style="color: darkcyan;">Log-In</a>
+                            <a href="/sign-up" class="d-inline-block p-3" style="color: darkcyan;">Sign-Up</a>
+                            
+                        </div>
+                        <!--
+                            <form action="" class="search-form d-inline-block">
+                
+                                <div class="d-flex">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <button type="submit" class="btn btn-secondary" ><span class="icon-search"></span></button>
+                                </div>
+                            </form>
+        
+                        -->
+                    </div>
+                    <div class="col-6 d-block d-lg-none text-right">
+                    
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="site-navbar py-2 js-sticky-header site-navbar-target d-none pl-0 d-lg-block" role="banner">
+
+                <div class="container">
+                    <div class="d-flex align-items-center">
+                        
+                        <div class="mr-auto">
+                            <nav class="site-navigation position-relative text-right" role="navigation">
+                                <ul class="site-menu main-menu js-clone-nav mr-auto d-none pl-0 d-lg-block">
+                                    <li class="active">
+                                        <a href="/" class="nav-link text-left">Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Career-Path" class="nav-link text-left">Career Path</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Websites" class="nav-link text-left">Websites</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Apps" class="nav-link text-left">Apps</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Product-Reviews" class="nav-link text-left">Product Reviews</a>
+                                    </li>
+                                </ul>                                                                                                                                                                                                                                                                                         
+                            </nav>
+            
+                        </div>
+                    
+                    </div>
+                </div>
+          
+            </div>
+              
+        </div>
+
+        {% block content %}
+        {% endblock %}
+
+        <div class="site-section subscribe bg-light">
+            <div class="container">
+                <form action="/subscribe" method="POST" class="row align-items-center">
+                    <div class="col-md-5 mr-auto">
+                        <h2>Newsletter Subscribe</h2>
+                        <p>
+                            Subscribe for getting updates about new posts and reviews.
+                            Don't worry your data will not be send or shared with
+                            any third party.
+                        </p>
+                    </div>
+                    <div class="col-md-6 ml-auto">
+                        <div class="d-flex">
+                            <input type="email" name="email" class="form-control" placeholder="Enter your email">
+                            <button type="submit" class="btn btn-secondary" ><span class="icon-paper-plane"></span></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="container">
+              
+      
+                <div class="row">
+                    <div class="col-12">
+                        <div class="links">
+                            <ul style="list-style: none;">
+                                <li><a href="/About">About</a></li>
+                                <li><a href="/Contacts">Contact</a></li>
+                                <li><a href="/privacy-policy">Privacy Policy</a></li>
+                                <li><a href="/TOU">Terms of Use</a></li>
+                            </ul>
+                        </div>
+                        <div class="copyright">
+                            <p>
+                                Copyright &copy;whichonebest.com | All rights reserved 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <!-- .site-wrap -->
+
+    <!--loader-->
+    <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#ff5e15"/></svg></div>
+
+    <script src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }} " type="text/javascript"></script>
+    <script src="{{url_for('static', filename='js/jquery-migrate-3.0.1.min.js')}} " type="text/javascript"></script>
+    <script src="{{url_for('static', filename='js/jquery-ui.js')}} " type="text/javascript"></script>
+    <script src="{{url_for('static', filename='js/popper.min.js')}} " type="text/javascript"></script>
+    <script src="{{url_for('static', filename='js/bootstrap.min.js')}} " type="text/javascript"></script>
+    <script src="{{url_for('static', filename='js/owl.carousel.min.js')}} " type="text/javascript"></script>
+    <script src="{{url_for('static', filename='js/jquery.stellar.min.js')}} " type="text/javascript"></script>
+    <script src="{{url_for('static', filename='js/jquery.countdown.min.js')}} " type="text/javascript"></script>
+    <script src="{{url_for('static', filename='js/bootstrap-datepicker.min.js')}} " type="text/javascript"></script>
+    <script src="{{url_for('static', filename='js/jquery.easing.1.3.js')}} " type="text/javascript"></script>
+    <script src="{{url_for('static', filename='js/aos.js')}} " type="text/javascript"></script>
+    <script src="{{url_for('static', filename='js/jquery.fancybox.min.js')}} " type="text/javascript"></script>
+    <script src="{{url_for('static', filename='js/jquery.sticky.js')}} " type="text/javascript"></script>
+    <script src="{{url_for('static', filename='js/jquery.mb.YTPlayer.min.js')}} " type="text/javascript"></script>
+
+
+
+
+    <script src="{{url_for('static', filename='js/main.js')}} " type="text/javascript"></script>
+
+</body>
+</html>
