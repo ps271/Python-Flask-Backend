@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}whichonebest{% endblock %}
+{%block content %}
+<div class="site-section">
+    <div class="container">
+        <div class="row">
+            {% for career in careers %}
+                <div class="col-lg-6">
+                    <div class="section-title">
+                        <h2>Career Path</h2>
+                    </div>
+                    <div class="post-entry-2 d-flex">
+                        <div class="thumbnail" style="background-image: url({{career.img_url}})"></div>
+                        <div class="contents">
+                            <h2><a href="/Career-Path/{{career.slug}}">{{career.title}}</a></h2>
+                            <p class="mb-3">{{career.content[0:100]|striptags}}</p>
+                            <div class="post-meta">
+                                <span class="date-read">{{career.date}}<span class="mx-1">&bullet;</span><span class="icon-star2"></span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            {% for website in websites %}
+                <div class="col-lg-6">
+                    <div class="section-title">
+                        <h2>Websites</h2>
+                    </div>
+                    <div class="post-entry-2 d-flex">
+                        <div class="thumbnail" style="background-image: url(website.img_url)"></div>
+                        <div class="contents">
+                            <h2><a href="/Websites/{{website.slug}}">{{website.title}}</a></h2>
+                            <p class="mb-3">{{website.content[0:100]|striptags}}</p>
+                            <div class="post-meta">
+                                <span class="date-read">{{website.date}}<span class="mx-1">&bullet;</span><span class="icon-star2"></span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
