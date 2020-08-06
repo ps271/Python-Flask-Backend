@@ -4,11 +4,11 @@
         "local_server":"True",
         "local_uri":"mysql://root:@localhost/whichone",
         "prod_uri":"",
-        "fb_url":"https://facebook.com/Whichonebest-109829454069188",
-        "tw_url":"https://twitter.com/whichonebest",
-        "insta_url":"https://instagram.com/WHICHONEBEST_whichonebest",
-        "gmail-user":"whichonebest17@gmail.com",
-        "gmail-pass":"@#$&prateek9856",
+        "fb_url":"https://facebook.com/user",
+        "tw_url":"https://twitter.com/user",
+        "insta_url":"https://instagram.com/user",
+        "gmail-user":"user@gmail.com",
+        "gmail-pass":"mygmailpassword",
         "nav_posts":5
     }
 
