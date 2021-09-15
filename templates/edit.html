@@ -1,0 +1,99 @@
+{% extends 'newbase.html' %}
+{% block title %} Edit {% endblock %}
+{% block body %}
+<div class="site-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 single-content">
+      
+                <div id="com" class="comment-form-wrap pt-5">
+                    <div class="section-title">
+                        <h2 class="mb-5">Edit Post</h2>
+                    </div>
+                    {% if dash == 'c' %}
+                    <form  action="/edit/career/{{sno}}" method="POST" class="p-5 bg-light">
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <input name="title" id="title" type="text" placeholder="career title" class="form-control" required>
+                        </div>                      
+                        <div class="form-group">
+                            <label for="slug">Slug</label>
+                            <input name="slug" id="slug" type="text" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="content">Content</label>
+                            <textarea name="content" id="message" cols="30" rows="10" class="form-control" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="image">Image Url</label>
+                            <input name="image" id="image" type="url" class="form-control" required>
+                        </div>
+
+                        <button type="submit" class="form-group">
+                            Save Changes
+                        </button>                                  
+        
+                    </form>
+                    {% elif dash == 'w' %}
+                    <form  action="/edit/website/{{sno}}" method="POST" class="p-5 bg-light">
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <input name="title" id="title" type="text" class="form-control" required>
+                        </div>                      
+                        <div class="form-group">
+                            <label for="slug">Slug</label>
+                            <input name="slug" id="slug" type="text" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="content">Content</label>
+                            <textarea name="content" id="message" cols="30" rows="10" class="form-control" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="image">Image Url</label>
+                            <input name="image" id="image" type="url" class="form-control" required>
+                        </div>
+
+                        <button type="submit" class="form-group">
+                            Save Changes
+                        </button>
+                                                           
+        
+                    </form>
+
+                    {% else %}
+                    <form  action="/edit/app/{{sno}}" method="POST" class="p-5 bg-light">                        
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <input name="title" id="title" type="text" class="form-control" required>
+                        </div>                      
+                        <div class="form-group">
+                            <label for="slug">Slug</label>
+                            <input name="slug" id="slug" type="text" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="content">Content</label>
+                            <textarea name="content" id="message" cols="30" rows="10" class="form-control" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="image">Image Url</label>
+                            <input name="image" id="image" type="url" class="form-control" required>
+                        </div>
+
+                        <button type="submit" class="form-group">
+                            Save Changes
+                        </button>
+                                                               
+            
+                    </form>
+                    {% endif %}
+                </div>
+                
+            </div>
+
+            
+
+        </div>
+      
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+{% block title %} {{website.title}} {% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <meta name="description" content="">
+{% endblock %}
+
+{% block content %}
+<div class="site-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 single-content">
+            
+                <p class="mb-5">
+                    <img src="{{website.img_url}}" alt="Image" class="img-fluid">
+                </p>  
+                <h1 class="mb-4">
+                    {{website.title}}
+                </h1>
+                <div class="post-meta d-flex mb-5">
+                    
+                    <div class="vcard">
+                        
+                        <span class="date-read">{{website.date}}<span class="mx-1">&bullet;</span><span class="icon-star2"></span></span>
+                    </div>
+                </div>
+                <div>
+                    {{website.content|safe}}
+                </div>
+                <!--
+                <div class="pt-5">
+                    <p>Categories:  <a href="#">Design</a>, <a href="#">Events</a>  Tags: <a href="#">#html</a>, <a href="#">#trends</a></p>
+                </div>
+                -->
+                {% if current_user.is_authenticated %}
+                <div class="pt-5">
+                    <div class="section-title">
+                        <h2 class="mb-5">Comments</h2>
+                    </div>
+                    <ul class="comment-list">
+                        <li class="comment">
+                            {% for comment in comments %}
+                                {% if comment.rep_to == "" %}
+                                <div class="comment-body">
+                                    <h3>{{comment.name}}</h3>
+                                    <div class="meta">{{comment.date}}</div>
+                                    <p>{{comment.msg}}</p>
+                                <a href="#com" class="reply" onclick="rep({{ comment.name }})">Reply</a>
+                                    
+                                </div>  
+                                {% elif len(comment.rep_to) > 0 %}
+                                    
+                                    <div class="comment-body">
+                                        <h4>@{{comment.rep_to}}</h4>
+                                        <h3>{{comment.name}}</h3>
+                                        <div class="meta">{{comment.date}}</div>
+                                        <p>{{comment.msg}}</p>
+                                        <p><a href="#com" class="reply" onclick="rep({{ comment.name }})">Reply</a></p>
+                                    </div>
+                                {% endif %}
+                                
+                            {% endfor %}
+                        </li>
+                    </ul>
+                    <!-- END comment-list -->
+                    
+                    <div id="com" class="comment-form-wrap pt-5">
+                        <div class="section-title">
+                            <h2 class="mb-5">Leave a comment</h2>
+                        </div>
+                        <form action="/Websites/{{website_slug}}" method="POST" class="p-5 bg-light">
+                            
+                            <div class="form-group">
+                                <label for="name">Name *</label>
+                                <input name="name" id="name" type="text" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input name="email" type="email" class="form-control" id="email">
+                              </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea name="message" id="message" cols="30" rows="10" class="form-control" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <input type="hidden" value="" id="reply" class="btn btn-primary py-3" name="reply">
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Post Comment" class="btn btn-primary py-3" name="submit">
+                            </div>
+        
+                        </form>
+                    </div>
+                </div>
+                {% else %}
+                    <h2>Login to comment !</h2>
+                {% endif %}
+            </div>
+
+            <!--
+            <div class="col-lg-3 ml-auto">
+                <div class="section-title">
+                    <h2>Popular Posts</h2>
+                </div>
+
+                <div class="trend-entry d-flex">
+                    <div class="number align-self-start">01</div>
+                    <div class="trend-contents">
+                        <h2><a href="blog-single.html">News Needs to Meet Its Audiences Where They Are</a></h2>
+                        <div class="post-meta">
+                            <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
+                            <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span class="icon-star2"></span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="trend-entry d-flex">
+                    <div class="number align-self-start">02</div>
+                    <div class="trend-contents">
+                        <h2><a href="blog-single.html">News Needs to Meet Its Audiences Where They Are</a></h2>
+                        <div class="post-meta">
+                            <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
+                            <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span class="icon-star2"></span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="trend-entry d-flex">
+                    <div class="number align-self-start">03</div>
+                    <div class="trend-contents">
+                        <h2><a href="blog-single.html">News Needs to Meet Its Audiences Where They Are</a></h2>
+                        <div class="post-meta">
+                            <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
+                            <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span class="icon-star2"></span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="trend-entry d-flex pl-0">
+                    <div class="number align-self-start">04</div>
+                    <div class="trend-contents">
+                        <h2><a href="blog-single.html">News Needs to Meet Its Audiences Where They Are</a></h2>
+                        <div class="post-meta">
+                            <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
+                            <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span class="icon-star2"></span></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <p>
+                    <a href="#" class="more">See All Popular <span class="icon-keyboard_arrow_right"></span></a>
+                </p>
+            </div>
+            -->
+
+        </div>
+      
+    </div>
+</div>
+<script>
+    function rep(name="") {
+        let rep_to = name;
+        document.getElementById(reply).value = rep_to;
+    }
+        
+</script>
+{% endblock %}

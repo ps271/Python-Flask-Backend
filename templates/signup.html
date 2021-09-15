@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %} Sign-Up {% endblock %}
+{% block content %}
+<div class="site-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 single-content">
+      
+                <div id="com" class="comment-form-wrap pt-5">
+                    <div class="section-title">
+                        <h2 class="mb-5">Sign-Up</h2>
+                    </div>
+                    <form action="/sign-up" method="POST" class="p-5 bg-light">
+                        
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input name="email" type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Username</label>
+                            <input name="name" id="name" type="text" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input name="password" id="password" type="password" class="form-control" required>
+                        </div>
+                        <button type="submit" class="form-group">
+                            Sign-Up
+                        </button>
+                        <div class="form-group">
+                            <p class="center">Or Login</p>
+                            <a class="center" href="/login">Login</a>
+                        </div>
+                                        
+            
+                    </form>
+                </div>
+                
+            </div>
+
+            
+
+        </div>
+      
+    </div>
+</div>
+{% endblock %}
